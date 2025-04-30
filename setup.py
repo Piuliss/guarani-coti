@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+with open("VERSION") as f:
+    version = f.read().strip()
+
 setup(
     name="guarani-coti",
-    version="0.1.0",
+    version=version,
     description="CLI para cotizaciones del guaraní paraguayo y otras monedas",
     author="Raul B. Netto",
     author_email="raulbeni@email.com",
