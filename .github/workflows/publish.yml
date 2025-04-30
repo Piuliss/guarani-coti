@@ -14,18 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Bump version and create tag
-        id: bump_version
-        uses: phips28/gh-action-bump-version@v11.0.7
-        with:
-          tag-prefix: ""
-          commit-message: "chore: bump version to {{version}}"
-          tag-message: "Release version {{version}}"
-          version-file: "VERSION"
-          default-bump: "patch"
-          create-tag: true
-          push-to-remote: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump version patch
+        run: |
+          chmod +x ./scripts/bump_version.sh
+          ./scripts/bump_version.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
     needs: bump-version
@@ -54,4 +48,4 @@ jobs:
         run: python -m build
 
       - name: Publish package to PyPI
-        run: python -m twine upload dist/*s
+        run: python -m twine upload dist/*
