@@ -16,7 +16,7 @@ jobs:
 
       - name: Bump version and create tag
         id: bump_version
-        uses: phips28/gh-action-bump-version@v8
+        uses: phips28/gh-action-bump-version@v11.0.7
         with:
           tag-prefix: ""
           commit-message: "chore: bump version to {{version}}"
