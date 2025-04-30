@@ -18,7 +18,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "guarani-coti=guarani_coti.main:main",
+            "guapy=guarani_coti.main:main",
         ],
     },
     python_requires=">=3.7",
