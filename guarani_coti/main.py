@@ -28,7 +28,7 @@ def get_api_key():
     load_dotenv()  # carga variables de .env si existen
     api_key = os.getenv("EXCHANGE_RATE_API_KEY") or load_api_key()
     if not api_key:
-        api_key = console.input("[yellow]Por favor ingresa tu EXCHANGE_RATE_API_KEY: [/yellow]").strip()
+        api_key = console.input("[yellow]Por favor ingresa tu EXCHANGE_RATE_API_KEY (o Enter para None): [/yellow]").strip()
         save_api_key(api_key)
         console.print("[green]API key guardada para futuras ejecuciones en ~/.guarani_coti_config[/green]")
     return api_key
